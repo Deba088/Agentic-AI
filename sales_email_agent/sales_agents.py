@@ -1,5 +1,5 @@
 from dotenv import load_dotenv
-from agents import Agent, ModelSettings
+from agents import Agent
 from tools import send_email_notification
 
 load_dotenv(override=True)
@@ -16,4 +16,4 @@ Your task:
 2. Send the email.
 """.strip()
 
-sales_agent = Agent(name="SalesAgent", instructions=instructions, tools=[send_email_notification], model_settings=ModelSettings(model_name=MODEL_NAME))
+sales_agent = Agent(name="SalesAgent", model=MODEL_NAME, instructions=instructions, tools=[send_email_notification])
